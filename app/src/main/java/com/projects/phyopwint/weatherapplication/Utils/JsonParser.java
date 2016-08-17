@@ -1,8 +1,7 @@
-package com.projects.phyopwint.weatherapplication;
+package com.projects.phyopwint.weatherapplication.Utils;
 
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,7 +35,7 @@ public class JsonParser {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     is, "iso-8859-1"), 8);
-            String line = null;
+            String line;
             while ((line = reader.readLine()) != null) {
                 sb.append(line);
                 sb.append('\n');
@@ -56,16 +55,6 @@ public class JsonParser {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
         return jObj;
-    }
-
-    public static JSONArray getJSONArrayFromUrl(String url) {
-        JSONArray jArray = null;
-        try {
-            jArray = new JSONArray(getStream(url));
-        } catch (JSONException e) {
-            Log.e("JSON Parser", "Error parsing array " + e.toString());
-        }
-        return jArray;
     }
 }
 

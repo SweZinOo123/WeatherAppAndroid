@@ -1,6 +1,4 @@
-package com.projects.phyopwint.weatherapplication;
-
-import java.util.HashMap;
+package com.projects.phyopwint.weatherapplication.Model;
 
 /**
  * Created by phyopwintthu on 8/16/16.
@@ -16,10 +14,10 @@ public class Weather {
     private String cloudStatus;
     private String imageName;
     private String winds;
+    private String name;
 
-    public Weather(String temp,String cloudStatus) {
-        this.temp = temp;
-        this.cloudStatus = cloudStatus;
+    public Weather(String name) {
+        this.cloudStatus = name;
     }
 
     public Weather(String maxTemp, String minTemp, String temp, String humidity, String pressure, String cloudStatus, String imageName, String winds) {
@@ -98,5 +96,13 @@ public class Weather {
 
     public void setWinds(String winds) {
         this.winds = winds;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -1,4 +1,4 @@
-package com.projects.phyopwint.weatherapplication;
+package com.projects.phyopwint.weatherapplication.Utils;
 
 import android.Manifest;
 import android.content.Context;
@@ -17,8 +17,8 @@ import android.support.v4.app.ActivityCompat;
 public class CurrentTrackLocation implements LocationListener {
     Context context;
     LocationManager locManager;
-    String longitute;
-    String latitude;
+    public String longitude;
+    public String latitude;
     boolean gps_enabled = false;
     boolean network_enabled = false;
 
@@ -56,15 +56,15 @@ public class CurrentTrackLocation implements LocationListener {
         }
 
         Location location = locManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        longitute = "Longitute: " + String.valueOf(location.getLongitude());
-        latitude = "Latitude: " + String.valueOf(location.getLatitude());
+        longitude = String.valueOf(location.getLongitude());
+        latitude = String.valueOf(location.getLatitude());
 
     }
 
     @Override
     public void onLocationChanged(Location location) {
-        longitute = "Longitute: " + String.valueOf(location.getLongitude());
-        latitude = "Latitude: " + String.valueOf(location.getLatitude());
+        longitude = String.valueOf(location.getLongitude());
+        latitude = String.valueOf(location.getLatitude());
     }
 
     @Override
