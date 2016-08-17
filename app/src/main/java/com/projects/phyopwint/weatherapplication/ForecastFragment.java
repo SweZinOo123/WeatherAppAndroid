@@ -4,6 +4,7 @@ package com.projects.phyopwint.weatherapplication;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,9 +35,10 @@ public class ForecastFragment extends Fragment {
             }
             @Override
             protected void onPostExecute(List<Weather> result) {
-
-                ListView list = (ListView) view.findViewById(R.id.listView);
-                list.setAdapter(adapter);
+                for (Weather w:
+                     result) {
+                    Log.e("Weather", w.getCloudStatus());
+                }
             }
         }.execute();
         return view;

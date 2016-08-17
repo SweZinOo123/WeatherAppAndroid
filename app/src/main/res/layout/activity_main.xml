@@ -20,15 +20,10 @@
         android:id="@+id/Lon"
         android:layout_below="@+id/Lat"/>
 
-    <fragment
-        android:layout_width="150dp"
-        android:layout_height="match_parent"
-        android:id="@+id/fragment" />
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/contentFrame">
+        android:id="@+id/content">
     </FrameLayout>
 
 </RelativeLayout>
