@@ -1,79 +1,87 @@
 package com.projects.phyopwint.weatherapplication.UI;
 
+import android.content.Context;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.projects.phyopwint.weatherapplication.Adapter.PagerAdapter;
 import com.projects.phyopwint.weatherapplication.R;
 import com.projects.phyopwint.weatherapplication.Utils.ConnectionHelper;
+import com.projects.phyopwint.weatherapplication.Utils.CurrentTrackLocation;
 
-import static android.widget.Toast.LENGTH_SHORT;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     LocationManager locationMgr;
     public static String linkURL;
     ConnectionHelper connection;
-    TabLayout tabLayout;
-
-    FragmentPagerAdapter adapterViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         connection = new ConnectionHelper(getApplicationContext());
         setContentView(R.layout.activity_main);
-        ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
-        adapterViewPager = new PagerAdapter(getSupportFragmentManager());
-        vpPager.setAdapter(adapterViewPager);
-        vpPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
-            // This method will be invoked when a new page becomes selected.
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.addTab(tabLayout.newTab().setText("Frag1"));
+        tabLayout.addTab(tabLayout.newTab().setText("Frag2"));
+        tabLayout.addTab(tabLayout.newTab().setText("Frag3"));
+        tabLayout.addTab(tabLayout.newTab().setText("Frag4"));
+        tabLayout.addTab(tabLayout.newTab().setText("Frag5"));
+        tabLayout.addTab(tabLayout.newTab().setText("Frag6"));
+        tabLayout.addTab(tabLayout.newTab().setText("Frag7"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onPageSelected(int position) {
-                Toast.makeText(getApplicationContext(), "Selected page position: " + position, LENGTH_SHORT).show();
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
             }
 
-            // This method will be invoked when the current page is scrolled
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                // Code goes here
+            public void onTabUnselected(TabLayout.Tab tab) {
+
             }
 
-            // Called when the scroll state changes:
-            // SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
             @Override
-            public void onPageScrollStateChanged(int state) {
-                // Code goes here
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
+
         });
 
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(vpPager);
+        if (connection.isNetworkAvailable()) {
+            locationMgr = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+            CurrentTrackLocation track = new CurrentTrackLocation(getApplicationContext(), locationMgr);
+            String longitude = track.longitude;
+            String latitude = track.latitude;
+            linkURL = String.format("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=049be2fdbe7653c97078dc752d6bc0fa&lat=%s&lon=%s", latitude, longitude);
 
-//        if (connection.isNetworkAvailable()) {
-//            locationMgr = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-//            CurrentTrackLocation track = new CurrentTrackLocation(getApplicationContext(), locationMgr);
-//            String longitude = track.longitude;
-//            String latitude = track.latitude;
-//            linkURL = String.format("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=049be2fdbe7653c97078dc752d6bc0fa&lat=%s&lon=%s", latitude, longitude);
-//
-//            Fragment fragment = new ForecastFragment();
-//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//            transaction.add(R.id.FrameContainer, fragment, null);
-//            transaction.addToBackStack(null);
-//            transaction.commit();
-//        } else {
-            Toast.makeText(getApplicationContext(),"No Internet Connection",Toast.LENGTH_SHORT).show();
-//            Fragment fragment = new ForecastFragment();
-//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//            transaction.add(R.id.FrameContainer, fragment, null);
-//            transaction.addToBackStack(null);
-//            transaction.commit();
-        //}
+            Fragment fragment = new ForecastFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.add(R.id.FrameContainer, fragment, null);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        } else {
+            Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
     }
 }
-

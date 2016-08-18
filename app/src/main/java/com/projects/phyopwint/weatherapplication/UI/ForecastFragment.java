@@ -16,18 +16,19 @@ import com.projects.phyopwint.weatherapplication.R;
  * A simple {@link Fragment} subclass.
  */
 public class ForecastFragment extends Fragment {
-    TextView cityName;
 
     public ForecastFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_forecast, container, false);
-        cityName = (TextView) view.findViewById(R.id.cityName);
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_forecast, container, false);
+        TextView messageTextView = (TextView) v.findViewById(R.id.cityName);
+        messageTextView.setText("Tab");
+        return v;
+    }
+}
 
 //        new AsyncTask<Void, Void, Weather>() {
 //            @Override
@@ -39,7 +40,5 @@ public class ForecastFragment extends Fragment {
 //                cityName.setText(result.getName());
 //            }
 //        }.execute();
-        return view;
-    }
-}
+
 
