@@ -2,28 +2,19 @@ package com.projects.phyopwint.weatherapplication.UI;
 
 import android.content.Context;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.projects.phyopwint.weatherapplication.Adapter.PagerAdapter;
 import com.projects.phyopwint.weatherapplication.R;
 import com.projects.phyopwint.weatherapplication.Utils.ConnectionHelper;
 import com.projects.phyopwint.weatherapplication.Utils.CurrentTrackLocation;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     LocationManager locationMgr;
@@ -74,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             String longitude = track.longitude;
             String latitude = track.latitude;
             linkURL = String.format("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=049be2fdbe7653c97078dc752d6bc0fa&lat=%s&lon=%s", latitude, longitude);
-
+            Log.e("linkURL", linkURL);
             Fragment fragment = new ForecastFragment();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.add(R.id.FrameContainer, fragment, null);

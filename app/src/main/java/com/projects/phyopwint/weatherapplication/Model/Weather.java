@@ -10,25 +10,23 @@ public class Weather {
     private String minTemp;
     private String temp;
     private String humidity;
-    private String pressure;
     private String cloudStatus;
     private String imageName;
-    private String winds;
     private String name;
+    private String day;
 
     public Weather(String name) {
         this.cloudStatus = name;
     }
 
-    public Weather(String maxTemp, String minTemp, String temp, String humidity, String pressure, String cloudStatus, String imageName, String winds) {
+    public Weather(String maxTemp, String minTemp, String temp, String humidity, String cloudStatus, String imageName,String day) {
         this.maxTemp = maxTemp;
         this.minTemp = minTemp;
         this.temp = temp;
         this.humidity = humidity;
-        this.pressure = pressure;
         this.cloudStatus = cloudStatus;
         this.imageName = imageName;
-        this.winds = winds;
+        this.day = day;
     }
 
     public Weather() {
@@ -66,13 +64,6 @@ public class Weather {
         this.humidity = humidity;
     }
 
-    public String getPressure() {
-        return pressure;
-    }
-
-    public void setPressure(String pressure) {
-        this.pressure = pressure;
-    }
 
     public String getCloudStatus() {
         return cloudStatus;
@@ -90,13 +81,6 @@ public class Weather {
         this.imageName = imageName;
     }
 
-    public String getWinds() {
-        return winds;
-    }
-
-    public void setWinds(String winds) {
-        this.winds = winds;
-    }
 
     public String getName() {
         return name;
@@ -104,5 +88,13 @@ public class Weather {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
     }
 }
