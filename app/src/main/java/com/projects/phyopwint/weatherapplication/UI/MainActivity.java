@@ -3,10 +3,13 @@ package com.projects.phyopwint.weatherapplication.UI;
 import android.content.Context;
 import android.location.LocationManager;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import android.os.AsyncTask;
 =======
 import android.net.Uri;
 >>>>>>> parent of c7b11c1... Successfully JSON parsing.
+=======
+>>>>>>> parent of f51f374... TabLayout Problems
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
@@ -22,17 +25,9 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.projects.phyopwint.weatherapplication.Adapter.PagerAdapter;
-import com.projects.phyopwint.weatherapplication.Model.Weather;
 import com.projects.phyopwint.weatherapplication.R;
 import com.projects.phyopwint.weatherapplication.Utils.ConnectionHelper;
 import com.projects.phyopwint.weatherapplication.Utils.CurrentTrackLocation;
-import com.projects.phyopwint.weatherapplication.Utils.JsonParser;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,10 +36,7 @@ public class MainActivity extends AppCompatActivity {
     LocationManager locationMgr;
     public static String linkURL;
     ConnectionHelper connection;
-    Weather weatherCityName;
-    Weather weatherDetail;
-    List<Weather> weatherDetails;
-    Bundle bundle = new Bundle();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +49,31 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Frag3"));
         tabLayout.addTab(tabLayout.newTab().setText("Frag4"));
         tabLayout.addTab(tabLayout.newTab().setText("Frag5"));
+        tabLayout.addTab(tabLayout.newTab().setText("Frag6"));
+        tabLayout.addTab(tabLayout.newTab().setText("Frag7"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+
+        });
 
         if (connection.isNetworkAvailable()) {
             locationMgr = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -67,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
             linkURL = String.format("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=049be2fdbe7653c97078dc752d6bc0fa&lat=%s&lon=%s", latitude, longitude);
 <<<<<<< HEAD
             Log.e("linkURL", linkURL);
+<<<<<<< HEAD
 
             weatherDetails = new ArrayList<>();
 
@@ -132,8 +149,9 @@ public class MainActivity extends AppCompatActivity {
 =======
 >>>>>>> parent of c7b11c1... Successfully JSON parsing.
 
+=======
+>>>>>>> parent of f51f374... TabLayout Problems
             Fragment fragment = new ForecastFragment();
-            fragment.setArguments(bundle);
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.add(R.id.FrameContainer, fragment, null);
             transaction.addToBackStack(null);
