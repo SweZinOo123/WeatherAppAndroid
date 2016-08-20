@@ -1,10 +1,13 @@
 package com.projects.phyopwint.weatherapplication.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by phyopwintthu on 8/16/16.
  */
 
-public class Weather {
+public class Weather implements Parcelable {
 
     private String maxTemp;
     private String minTemp;
@@ -16,7 +19,7 @@ public class Weather {
     private String day;
 
     public Weather(String name) {
-        this.cloudStatus = name;
+        this.name = name;
     }
 
     public Weather(String maxTemp, String minTemp, String temp, String humidity, String cloudStatus, String imageName,String day) {
@@ -31,6 +34,29 @@ public class Weather {
 
     public Weather() {
     }
+
+    protected Weather(Parcel in) {
+        maxTemp = in.readString();
+        minTemp = in.readString();
+        temp = in.readString();
+        humidity = in.readString();
+        cloudStatus = in.readString();
+        imageName = in.readString();
+        name = in.readString();
+        day = in.readString();
+    }
+
+    public static final Creator<Weather> CREATOR = new Creator<Weather>() {
+        @Override
+        public Weather createFromParcel(Parcel in) {
+            return new Weather(in);
+        }
+
+        @Override
+        public Weather[] newArray(int size) {
+            return new Weather[size];
+        }
+    };
 
     public String getMaxTemp() {
         return maxTemp;
@@ -96,5 +122,22 @@ public class Weather {
 
     public void setDay(String day) {
         this.day = day;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(maxTemp);
+        dest.writeString(minTemp);
+        dest.writeString(temp);
+        dest.writeString(humidity);
+        dest.writeString(cloudStatus);
+        dest.writeString(imageName);
+        dest.writeString(name);
+        dest.writeString(day);
     }
 }

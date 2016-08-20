@@ -2,14 +2,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="com.projects.phyopwint.weatherapplication.UI.ForecastFragment">
 
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:id="@+id/cityName"/>
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent">
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:textColor="@color/colorText"
+            android:layout_height="wrap_content"
+            android:id="@+id/textDay"
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textCity"
+            android:textColor="@color/colorText"
+            android:layout_below="@+id/textDay"
+            android:textSize="24sp"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textDate"
+            android:textColor="@color/colorText"
+            android:layout_below="@+id/textCity"
+            android:textSize="24sp"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 </FrameLayout>
