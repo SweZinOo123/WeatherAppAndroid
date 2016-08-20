@@ -56,14 +56,8 @@ public class CurrentTrackLocation implements LocationListener {
         }
 
         Location location = locManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-
-        try{
-            longitude = String.valueOf(location.getLongitude());
-            latitude = String.valueOf(location.getLatitude());
-        }catch(NullPointerException ex){
-            ex.printStackTrace();
-        }
-
+        longitude = String.valueOf(location.getLongitude());
+        latitude = String.valueOf(location.getLatitude());
 
     }
 

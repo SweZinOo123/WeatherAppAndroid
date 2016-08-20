@@ -2,16 +2,25 @@ package com.projects.phyopwint.weatherapplication.UI;
 
 import android.content.Context;
 import android.location.LocationManager;
+<<<<<<< HEAD
 import android.os.AsyncTask;
+=======
+import android.net.Uri;
+>>>>>>> parent of c7b11c1... Successfully JSON parsing.
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.projects.phyopwint.weatherapplication.Adapter.PagerAdapter;
 import com.projects.phyopwint.weatherapplication.Model.Weather;
 import com.projects.phyopwint.weatherapplication.R;
@@ -21,6 +30,9 @@ import com.projects.phyopwint.weatherapplication.Utils.JsonParser;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             String longitude = track.longitude;
             String latitude = track.latitude;
             linkURL = String.format("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=049be2fdbe7653c97078dc752d6bc0fa&lat=%s&lon=%s", latitude, longitude);
+<<<<<<< HEAD
             Log.e("linkURL", linkURL);
 
             weatherDetails = new ArrayList<>();
@@ -116,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             });
+=======
+>>>>>>> parent of c7b11c1... Successfully JSON parsing.
 
             Fragment fragment = new ForecastFragment();
             fragment.setArguments(bundle);

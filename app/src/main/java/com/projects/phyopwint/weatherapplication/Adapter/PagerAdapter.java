@@ -3,10 +3,13 @@ package com.projects.phyopwint.weatherapplication.Adapter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.projects.phyopwint.weatherapplication.Model.Weather;
 import com.projects.phyopwint.weatherapplication.UI.ForecastFragment;
+
+import java.util.List;
 
 /**
  * Created by phyopwintthu on 8/18/16.

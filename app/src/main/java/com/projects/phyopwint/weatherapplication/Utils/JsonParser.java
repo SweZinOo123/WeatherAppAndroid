@@ -44,7 +44,7 @@ public class JsonParser {
         } catch (Exception e) {
             Log.e("Buffer Error", "Error converting result " + e.toString());
         }
-        return sb.toString();
+        return (sb.toString());
     }
 
     public static JSONObject getJSONFromUrl(String url) {

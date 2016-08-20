@@ -13,23 +13,25 @@ public class Weather implements Parcelable {
     private String minTemp;
     private String temp;
     private String humidity;
+    private String pressure;
     private String cloudStatus;
     private String imageName;
+    private String winds;
     private String name;
-    private String day;
 
     public Weather(String name) {
         this.name = name;
     }
 
-    public Weather(String maxTemp, String minTemp, String temp, String humidity, String cloudStatus, String imageName,String day) {
+    public Weather(String maxTemp, String minTemp, String temp, String humidity, String pressure, String cloudStatus, String imageName, String winds) {
         this.maxTemp = maxTemp;
         this.minTemp = minTemp;
         this.temp = temp;
         this.humidity = humidity;
+        this.pressure = pressure;
         this.cloudStatus = cloudStatus;
         this.imageName = imageName;
-        this.day = day;
+        this.winds = winds;
     }
 
     public Weather() {
@@ -90,6 +92,13 @@ public class Weather implements Parcelable {
         this.humidity = humidity;
     }
 
+    public String getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(String pressure) {
+        this.pressure = pressure;
+    }
 
     public String getCloudStatus() {
         return cloudStatus;
@@ -107,6 +116,13 @@ public class Weather implements Parcelable {
         this.imageName = imageName;
     }
 
+    public String getWinds() {
+        return winds;
+    }
+
+    public void setWinds(String winds) {
+        this.winds = winds;
+    }
 
     public String getName() {
         return name;
@@ -115,6 +131,7 @@ public class Weather implements Parcelable {
     public void setName(String name) {
         this.name = name;
     }
+<<<<<<< HEAD
 
     public String getDay() {
         return day;
@@ -140,4 +157,6 @@ public class Weather implements Parcelable {
         dest.writeString(name);
         dest.writeString(day);
     }
+=======
+>>>>>>> parent of c7b11c1... Successfully JSON parsing.
 }

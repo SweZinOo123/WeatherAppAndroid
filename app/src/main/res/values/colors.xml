@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <color name="colorPrimary">#637bff</color>
     <color name="colorAccent">#8f2448</color>
     <color name="colorInfo">#d2d2d2</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorText">#FFFFFF</color>
+=======
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+>>>>>>> parent of c7b11c1... Successfully JSON parsing.
 </resources>
