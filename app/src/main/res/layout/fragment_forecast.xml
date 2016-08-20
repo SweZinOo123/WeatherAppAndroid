@@ -6,35 +6,55 @@
     tools:context="com.projects.phyopwint.weatherapplication.UI.ForecastFragment">
 
     <RelativeLayout
+        android:id="@+id/LayoutOne"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent">
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:textColor="@color/colorText"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/upperView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textDay"
-            android:textSize="30sp"
-            android:layout_centerHorizontal="true" />
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textCity"
-            android:textColor="@color/colorText"
-            android:layout_below="@+id/textDay"
-            android:textSize="24sp"
-            android:layout_centerHorizontal="true" />
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textDate"
-            android:textColor="@color/colorText"
-            android:layout_below="@+id/textCity"
-            android:textSize="24sp"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+            android:background="@color/colorAccent">
+            <TextView
+                android:id="@+id/textDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="TextView"
+                android:textColor="@color/colorText"
+                android:textSize="30sp" />
 
+            <TextView
+                android:id="@+id/textCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textDay"
+                android:layout_centerHorizontal="true"
+                android:text="TextView"
+                android:textColor="@color/colorText"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textCity"
+                android:layout_centerHorizontal="true"
+                android:text="TextView"
+                android:textColor="@color/colorText"
+                android:textSize="24sp" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/textCommon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@+id/upperView"
+            android:textColor="@color/colorText"
+            android:textSize="24sp" />
+        <ImageView
+            android:id="@+id/imageViewIcon"
+            android:layout_width="100dp"
+            android:layout_below="@+id/textCommon"
+            android:layout_height="100dp"/>
+    </RelativeLayout>
 </FrameLayout>

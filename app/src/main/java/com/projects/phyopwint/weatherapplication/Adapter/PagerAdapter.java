@@ -22,17 +22,15 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
         this.weather = data;
+
     }
 
-    public PagerAdapter(FragmentManager fm, Weather data) {
-        super(fm);
-        this.weather = data;
-    }
 
     @Override
     public Fragment getItem(int position) {
         Bundle bundle = new Bundle();
         bundle.putParcelable(PARCEL_KEY, weather);
+
         switch (position) {
             case 0:
                 ForecastFragment tab1 = new ForecastFragment();

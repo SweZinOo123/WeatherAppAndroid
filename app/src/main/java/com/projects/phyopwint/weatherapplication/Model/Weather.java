@@ -17,12 +17,10 @@ public class Weather implements Parcelable {
     private String imageName;
     private String name;
     private String day;
+    private String date;
 
-    public Weather(String name) {
+    public Weather(String name, String maxTemp, String minTemp, String temp, String humidity, String cloudStatus, String imageName, String day, String date) {
         this.name = name;
-    }
-
-    public Weather(String maxTemp, String minTemp, String temp, String humidity, String cloudStatus, String imageName,String day) {
         this.maxTemp = maxTemp;
         this.minTemp = minTemp;
         this.temp = temp;
@@ -30,9 +28,7 @@ public class Weather implements Parcelable {
         this.cloudStatus = cloudStatus;
         this.imageName = imageName;
         this.day = day;
-    }
-
-    public Weather() {
+        this.date = date;
     }
 
     protected Weather(Parcel in) {
@@ -44,6 +40,7 @@ public class Weather implements Parcelable {
         imageName = in.readString();
         name = in.readString();
         day = in.readString();
+        date = in.readString();
     }
 
     public static final Creator<Weather> CREATOR = new Creator<Weather>() {
@@ -62,32 +59,16 @@ public class Weather implements Parcelable {
         return maxTemp;
     }
 
-    public void setMaxTemp(String maxTemp) {
-        this.maxTemp = maxTemp;
-    }
-
     public String getMinTemp() {
         return minTemp;
-    }
-
-    public void setMinTemp(String minTemp) {
-        this.minTemp = minTemp;
     }
 
     public String getTemp() {
         return temp;
     }
 
-    public void setTemp(String temp) {
-        this.temp = temp;
-    }
-
     public String getHumidity() {
         return humidity;
-    }
-
-    public void setHumidity(String humidity) {
-        this.humidity = humidity;
     }
 
 
@@ -95,18 +76,9 @@ public class Weather implements Parcelable {
         return cloudStatus;
     }
 
-    public void setCloudStatus(String cloudStatus) {
-        this.cloudStatus = cloudStatus;
-    }
-
     public String getImageName() {
         return imageName;
     }
-
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
-    }
-
 
     public String getName() {
         return name;
@@ -120,8 +92,8 @@ public class Weather implements Parcelable {
         return day;
     }
 
-    public void setDay(String day) {
-        this.day = day;
+    public String getDate() {
+        return date;
     }
 
     @Override
@@ -139,5 +111,7 @@ public class Weather implements Parcelable {
         dest.writeString(imageName);
         dest.writeString(name);
         dest.writeString(day);
+        dest.writeString(date);
     }
+
 }
