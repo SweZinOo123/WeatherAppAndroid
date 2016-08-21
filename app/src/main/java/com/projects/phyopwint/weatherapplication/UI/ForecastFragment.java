@@ -22,7 +22,9 @@ public class ForecastFragment extends Fragment {
     TextView txtDay;
     TextView txtCity;
     TextView txtDate;
-    TextView txtCommon;
+    TextView txtTemp;
+    TextView txtHumid;
+    TextView txtStatus;
     ImageView imgIcon;
     Weather w;
     private String PARCEL_KEY = "data";
@@ -39,17 +41,21 @@ public class ForecastFragment extends Fragment {
         txtDay = (TextView) v.findViewById(R.id.textDay);
         txtCity = (TextView) v.findViewById(R.id.textCity);
         txtDate = (TextView) v.findViewById(R.id.textDate);
-        txtCommon = (TextView) v.findViewById(R.id.textCommon);
+        txtTemp = (TextView) v.findViewById(R.id.textTemp);
+        txtHumid = (TextView) v.findViewById(R.id.textHumid);
+        txtStatus = (TextView) v.findViewById(R.id.textDesc);
         imgIcon = (ImageView) v.findViewById(R.id.imageViewIcon);
         txtCity.setText(w.getName());
         txtDay.setText(w.getDay());
         txtDate.setText(w.getDate());
-
+        txtTemp.setText(w.getTemp()+"°C");
+        txtStatus.setText(w.getCloudStatus());
+        txtHumid.setText("Humidity - "+w.getHumidity());
         //Setting Dynamic Images
-        String imgName = String.format("art_%s",w.getImageName().substring(0,2));
+        String imgName = String.format("art_%s", w.getImageName().substring(0, 2));
         String PACKAGE_NAME = getContext().getPackageName();
-        int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+imgName , null, null);
-        imgIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
+        int imgId = getResources().getIdentifier(PACKAGE_NAME + ":drawable/" + imgName, null, null);
+        imgIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), imgId));
         return v;
     }
 }

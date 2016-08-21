@@ -6,55 +6,88 @@
     tools:context="com.projects.phyopwint.weatherapplication.UI.ForecastFragment">
 
     <RelativeLayout
-        android:id="@+id/LayoutOne"
+        android:id="@+id/upperView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
-            android:id="@+id/upperView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent">
-            <TextView
-                android:id="@+id/textDay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="TextView"
-                android:textColor="@color/colorText"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/textCity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textDay"
-                android:layout_centerHorizontal="true"
-                android:text="TextView"
-                android:textColor="@color/colorText"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/textDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textCity"
-                android:layout_centerHorizontal="true"
-                android:text="TextView"
-                android:textColor="@color/colorText"
-                android:textSize="24sp" />
-        </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
         <TextView
-            android:id="@+id/textCommon"
+            android:id="@+id/textCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_below="@+id/upperView"
+            android:layout_centerHorizontal="true"
+            android:text="City"
+            android:textColor="@color/colorText"
+            android:textSize="36sp"
+            android:fontFamily="sans-serif-condensed" />
+        <TextView
+            android:id="@+id/textDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Day"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_below="@+id/textCity"
+            android:textColor="@color/colorText"
+            android:textSize="34sp" />
+        <TextView
+            android:id="@+id/textDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textDay"
+            android:layout_centerHorizontal="true"
+            android:text="Date"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/colorText"
+            android:textSize="30sp" />
+        <LinearLayout
+            android:id="@+id/middleView"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textDate"
+            android:layout_marginBottom="40dp"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/textTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textDate"
+                android:text="Temp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/colorText"
+                android:textSize="50sp"
+                android:layout_marginTop="60dp" />
+
+            <ImageView
+                android:id="@+id/imageViewIcon"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/textDesc" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/textHumid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textDesc"
+            android:layout_centerHorizontal="true"
+            android:text="Humid"
+            android:fontFamily="sans-serif-condensed"
             android:textColor="@color/colorText"
             android:textSize="24sp" />
-        <ImageView
-            android:id="@+id/imageViewIcon"
-            android:layout_width="100dp"
-            android:layout_below="@+id/textCommon"
-            android:layout_height="100dp"/>
+
+        <TextView
+            android:id="@+id/textDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middleView"
+            android:layout_centerHorizontal="true"
+            android:text="Description"
+            android:textAllCaps="true"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/colorText"
+            android:textSize="30sp" />
+
     </RelativeLayout>
 </FrameLayout>
