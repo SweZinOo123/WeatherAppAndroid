@@ -4,8 +4,7 @@
 
 ## Android Weather Apps which retrives your current location and show the 5days weather forecast.
 
-![alt text](https://github.com/phyopwint1912/WeatherAppiOS/blob/master/Simulator%20Screen%20Shot%20Aug%209%2C%202016%2C%207.21.46%20PM.png "")
-
+<img src="https://github.com/phyopwint1912/WeatherAppAndroid/blob/master/Screenshot_2016-08-21-17-50-29.png" width="245" height="440"/>
 
 ## Contributing
  1. Fork it
