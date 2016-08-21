@@ -1,6 +1,7 @@
 # WeatherAppAndroid
  
-![alt text](https://github.com/phyopwint1912/WeatherAppiOS/blob/master/Icon-App-76x76%403x.png "")
+<img src="https://github.com/phyopwint1912/WeatherAppiOS/blob/master/Icon-App-76x76%403x.png" width="100" height="100"/>
+
 
 ## Android Weather Apps which retrives your current location and show the 5days weather forecast.
 
